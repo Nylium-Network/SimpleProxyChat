@@ -39,8 +39,17 @@ public class BungeeServerListener implements Listener {
         startServerStatusDetection();
     }
 
+    public static boolean serverIsDisabled(@Nullable ServerInfo serverInfo, ISimpleProxyChat plugin) {
+        if (serverInfo == null) return false;
+        return plugin.getSPCConfig().get(ConfigKey.DISABLED_SERVERS).asList().contains(serverInfo.getName());
+    }
+
     public static boolean playerIsInDisabledServer(ProxiedPlayer player, ISimpleProxyChat plugin) {
-        return plugin.getSPCConfig().get(ConfigKey.DISABLED_SERVERS).asList().contains(player.getServer().getInfo().getName());
+        // player.getServer() is null whenever the downstream connection is already gone
+        // (full network leave, kick, failed connect). Mirrors the Velocity Optional-based check.
+        Server server = player.getServer();
+        if (server == null) return false;
+        return serverIsDisabled(server.getInfo(), plugin);
     }
 
     @EventHandler (priority = EventPriority.HIGHEST)
@@ -74,7 +83,7 @@ public class BungeeServerListener implements Listener {
     */
     @EventHandler
     public void onPlayerLeaveServer(ServerDisconnectEvent event) {
-        if (playerIsInDisabledServer(event.getPlayer(), plugin)) return;
+        if (serverIsDisabled(event.getTarget(), plugin)) return;
         previousServerHandler.put(event.getPlayer().getName(), event.getTarget());
     }
 
@@ -84,7 +93,7 @@ public class BungeeServerListener implements Listener {
     */
     @EventHandler
     public void onPlayerKick(ServerKickEvent event) {
-        if (playerIsInDisabledServer(event.getPlayer(), plugin)) return;
+        if (serverIsDisabled(event.getKickedFrom(), plugin)) return;
         if (event.getState() == ServerKickEvent.State.CONNECTING) return;
         if (!event.getPlayer().getGroups().contains("successful-connection")) return;
         previousServerHandler.put(event.getPlayer().getName(), event.getKickedFrom());
