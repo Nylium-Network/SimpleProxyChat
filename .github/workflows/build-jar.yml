@@ -1,0 +1,35 @@
+name: Build patched jar
+
+# Uruchamia się po każdym zapisie zmiany w repo,
+# oraz ręcznie z zakładki Actions (przycisk "Run workflow").
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build SimpleProxyChat
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v6
+
+      - name: Set Up JDK 21
+        uses: actions/setup-java@v5
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Set Up Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Build with Gradle
+        run: gradle shadowJar
+
+      # Gotowe jary lądują w katalogu libs/ w głównym folderze repo.
+      - name: Upload JARs
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleProxyChat-patched
+          path: libs/*.jar
+          if-no-files-found: error
