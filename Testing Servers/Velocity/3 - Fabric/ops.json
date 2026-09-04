@@ -4,5 +4,11 @@
     "name": "beanbeanjuice",
     "level": 4,
     "bypassesPlayerLimit": false
+  },
+  {
+    "uuid": "bcb51e38-f3b6-44ee-b609-6d14825cb99f",
+    "name": "Tesserine",
+    "level": 4,
+    "bypassesPlayerLimit": false
   }
 ]

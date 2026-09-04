@@ -53,8 +53,14 @@ allprojects {
         implementation("org.bstats", "bstats-velocity", "3.1.0")
 
         // Discord Support
-        implementation("net.dv8tion", "JDA", "5.6.1") {
+        // implementation("net.dv8tion", "JDA", "5.6.1") {
+        //     exclude(module = "opus-java")
+        // }
+
+        // Fluxer
+        implementation("net.astr4y:JFA:0.0.4-alpha_DEV") {
             exclude(module = "opus-java")
+            exclude(module = "tink")
         }
     }
 

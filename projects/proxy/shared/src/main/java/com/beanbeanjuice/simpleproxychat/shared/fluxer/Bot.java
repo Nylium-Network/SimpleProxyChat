@@ -1,4 +1,4 @@
-package com.beanbeanjuice.simpleproxychat.shared.discord;
+package com.beanbeanjuice.simpleproxychat.shared.fluxer;
 
 import com.beanbeanjuice.simpleproxychat.shared.config.Config;
 import com.beanbeanjuice.simpleproxychat.shared.config.ConfigKey;
@@ -46,7 +46,7 @@ public class Bot {
 
         this.runnableQueue = new ConcurrentLinkedQueue<>();
 
-        if (!config.get(ConfigKey.USE_DISCORD).asBoolean()) {
+        if (!config.get(ConfigKey.USE_FLUXER).asBoolean()) {
             bot = null;
             return;
         }

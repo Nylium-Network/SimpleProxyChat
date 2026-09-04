@@ -1,6 +1,6 @@
 package com.beanbeanjuice.simpleproxychat.shared.status;
 
-import com.beanbeanjuice.simpleproxychat.shared.discord.Bot;
+import com.beanbeanjuice.simpleproxychat.shared.fluxer.Bot;
 import com.beanbeanjuice.simpleproxychat.shared.ISimpleProxyChat;
 import com.beanbeanjuice.simpleproxychat.shared.helper.Helper;
 import com.beanbeanjuice.simpleproxychat.shared.config.Config;

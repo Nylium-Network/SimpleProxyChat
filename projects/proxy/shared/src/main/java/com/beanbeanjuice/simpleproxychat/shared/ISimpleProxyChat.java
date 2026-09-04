@@ -1,7 +1,7 @@
 package com.beanbeanjuice.simpleproxychat.shared;
 
 import com.beanbeanjuice.simpleproxychat.shared.config.Config;
-import com.beanbeanjuice.simpleproxychat.shared.discord.Bot;
+import com.beanbeanjuice.simpleproxychat.shared.fluxer.Bot;
 
 import java.util.Optional;
 

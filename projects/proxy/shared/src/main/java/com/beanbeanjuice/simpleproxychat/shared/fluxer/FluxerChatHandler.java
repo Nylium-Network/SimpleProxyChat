@@ -1,4 +1,4 @@
-package com.beanbeanjuice.simpleproxychat.shared.discord;
+package com.beanbeanjuice.simpleproxychat.shared.fluxer;
 
 import com.beanbeanjuice.simpleproxychat.shared.config.Config;
 import com.beanbeanjuice.simpleproxychat.shared.config.ConfigKey;
@@ -7,15 +7,15 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 import java.util.function.Consumer;
 
-public class DiscordChatHandler extends ListenerAdapter {
+public class FluxerChatHandler extends ListenerAdapter {
 
     private final Config config;
-    private final Consumer<MessageReceivedEvent> sendFromDiscord;
+    private final Consumer<MessageReceivedEvent> sendFromFluxer;
 
-    public DiscordChatHandler(Config config,
-                              Consumer<MessageReceivedEvent> sendFromDiscord) {
+    public FluxerChatHandler(Config config,
+                             Consumer<MessageReceivedEvent> sendFromFluxer) {
         this.config = config;
-        this.sendFromDiscord = sendFromDiscord;
+        this.sendFromFluxer = sendFromFluxer;
     }
 
     public void onMessageReceived(MessageReceivedEvent event) {
@@ -23,7 +23,7 @@ public class DiscordChatHandler extends ListenerAdapter {
         if (event.getAuthor().isBot()) return;
         if (!config.get(ConfigKey.DISCORD_CHAT_ENABLED).asBoolean()) return;
 
-        sendFromDiscord.accept(event);
+        sendFromFluxer.accept(event);
     }
 
 }

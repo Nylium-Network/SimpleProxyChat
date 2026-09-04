@@ -5,13 +5,13 @@
 #         Supports Mini-Message/Legacy Color Codes
 # ==========================================================
 
-# True if you will be using Discord. The reload command does not work with this.
-use-discord: false
+# True if you will be using Fluxer. The reload command does not work with this.
+use-fluxer: false
 
-# Discord Bot Token (IGNORE IF use_discord = false).
+# Fluxer Bot Token (IGNORE IF use-fluxer = false).
 BOT-TOKEN: "TOKEN_HERE"
 
-# Channel to send Discord messages to (IGNORE IF use_discord = false).
+# Channel to send Fluxer messages to (IGNORE IF use-fluxer = false).
 CHANNEL-ID: "GLOBAL_CHANNEL_ID"
 
 bot-activity:
@@ -57,7 +57,7 @@ use-permissions: false
 proxy-message-prefix: ''
 
 # Whether to send if the statuses of the servers connected to the proxy when the proxy starts up.
-# THIS IS FOR DISCORD MESSAGES ONLY.
+# THIS IS FOR FLUXER MESSAGES ONLY.
 use-initial-server-status: true
 
 # Whether to send a fake join/leave message when vanishing/unvanishing.

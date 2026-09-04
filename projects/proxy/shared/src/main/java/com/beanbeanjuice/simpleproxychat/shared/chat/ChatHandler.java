@@ -1,8 +1,8 @@
 package com.beanbeanjuice.simpleproxychat.shared.chat;
 
 import com.beanbeanjuice.simpleproxychat.common.CommonHelper;
-import com.beanbeanjuice.simpleproxychat.shared.discord.Bot;
-import com.beanbeanjuice.simpleproxychat.shared.discord.DiscordChatHandler;
+import com.beanbeanjuice.simpleproxychat.shared.fluxer.Bot;
+import com.beanbeanjuice.simpleproxychat.shared.fluxer.FluxerChatHandler;
 import com.beanbeanjuice.simpleproxychat.shared.socket.ChatMessageData;
 import com.beanbeanjuice.simpleproxychat.shared.ISimpleProxyChat;
 import com.beanbeanjuice.simpleproxychat.shared.helper.Helper;
@@ -48,7 +48,7 @@ public class ChatHandler {
         this.discordBot = plugin.getDiscordBot();
         this.lastMessagesHelper = new LastMessagesHelper(plugin.getSPCConfig());
 
-        plugin.getDiscordBot().addRunnableToQueue(() -> plugin.getDiscordBot().getJDA().ifPresent((jda) -> jda.addEventListener(new DiscordChatHandler(config, this::sendFromDiscord))));
+        plugin.getDiscordBot().addRunnableToQueue(() -> plugin.getDiscordBot().getJDA().ifPresent((jda) -> jda.addEventListener(new FluxerChatHandler(config, this::sendFromDiscord))));
     }
 
     private Optional<String> getValidMessage(String message) {

@@ -12,7 +12,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public enum ConfigKey {
     // CONFIG
-    USE_DISCORD (ConfigFileType.CONFIG, "use-discord", Boolean.class),
+    USE_FLUXER (ConfigFileType.CONFIG, "use-fluxer", Boolean.class),
     BOT_TOKEN (ConfigFileType.CONFIG, "BOT-TOKEN", String.class),
     CHANNEL_ID (ConfigFileType.CONFIG, "CHANNEL-ID", String.class),
     BOT_ACTIVITY_STATUS (ConfigFileType.CONFIG, "bot-activity.status", String.class),
