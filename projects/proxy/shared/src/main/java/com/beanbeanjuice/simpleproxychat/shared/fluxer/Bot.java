@@ -161,7 +161,7 @@ public class Bot {
 
     public void channelUpdaterFunction() {
         if (bot == null) return;
-        String topicMessage = config.get(ConfigKey.DISCORD_TOPIC_ONLINE).asString().replace("%online%", String.valueOf(getOnlinePlayers.get()));
+        String topicMessage = config.get(ConfigKey.FLUXER_TOPIC_ONLINE).asString().replace("%online%", String.valueOf(getOnlinePlayers.get()));
         this.updateChannelTopic(topicMessage);
     }
 
@@ -230,19 +230,19 @@ public class Bot {
     }
 
     public void sendProxyStatus(final boolean isStart) {
-        if (!config.get(ConfigKey.DISCORD_PROXY_STATUS_ENABLED).asBoolean()) return;
+        if (!config.get(ConfigKey.FLUXER_PROXY_STATUS_ENABLED).asBoolean()) return;
 
         if (isStart) {
             this.sendMessageEmbed(
                     new EmbedBuilder()
-                            .setTitle(config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_ENABLED).asString())
+                            .setTitle(config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_ENABLED).asString())
                             .setColor(Color.GREEN)
                             .build()
             );
         } else {
             this.sendMessageEmbed(
                     new EmbedBuilder()
-                            .setTitle(config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_DISABLED).asString())
+                            .setTitle(config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_DISABLED).asString())
                             .setColor(Color.RED)
                             .build()
             );
@@ -253,7 +253,7 @@ public class Bot {
         if (bot == null) return;
         sendProxyStatus(false);
 
-        this.updateChannelTopic(config.get(ConfigKey.DISCORD_TOPIC_OFFLINE).asString());
+        this.updateChannelTopic(config.get(ConfigKey.FLUXER_TOPIC_OFFLINE).asString());
 
         this.getJDA().ifPresent((jda) -> {
             try {

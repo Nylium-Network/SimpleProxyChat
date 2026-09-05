@@ -34,11 +34,11 @@ public class ServerStatusManager {
     }
 
     public MessageEmbed getStatusEmbed(String serverName, boolean status) {
-        String statusMessageString = config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_MESSAGE).asString();
-        String statusString = status ? config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_ONLINE).asString() : config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_OFFLINE).asString();
+        String statusMessageString = config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_MESSAGE).asString();
+        String statusString = status ? config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_ONLINE).asString() : config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_OFFLINE).asString();
 
         EmbedBuilder embedBuilder = new EmbedBuilder();
-        embedBuilder.setTitle(config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_TITLE).asString());
+        embedBuilder.setTitle(config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_TITLE).asString());
         embedBuilder.addField(
                 Helper.convertAlias(config, serverName),
                 String.format("%s%s", statusMessageString, statusString),
@@ -48,10 +48,10 @@ public class ServerStatusManager {
     }
 
     public MessageEmbed getAllStatusEmbed() {
-        String title = config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_TITLE).asString();
-        String message = config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_MESSAGE).asString();
-        String onlineString = config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_ONLINE).asString();
-        String offlineString = config.get(ConfigKey.DISCORD_PROXY_STATUS_MODULE_OFFLINE).asString();
+        String title = config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_TITLE).asString();
+        String message = config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_MESSAGE).asString();
+        String onlineString = config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_ONLINE).asString();
+        String offlineString = config.get(ConfigKey.FLUXER_PROXY_STATUS_MODULE_OFFLINE).asString();
 
         EmbedBuilder embedBuilder = new EmbedBuilder();
         embedBuilder.setTitle(title);
@@ -85,7 +85,7 @@ public class ServerStatusManager {
 
         ServerStatus currentStatus = this.getStatus(serverName);
         currentStatus.updateStatus(newStatus).ifPresent((isOnline) -> {
-            if (config.get(ConfigKey.DISCORD_PROXY_STATUS_ENABLED).asBoolean())
+            if (config.get(ConfigKey.FLUXER_PROXY_STATUS_ENABLED).asBoolean())
                 discordBot.sendMessageEmbed(this.getStatusEmbed(serverName, isOnline));
 
             if (config.get(ConfigKey.CONSOLE_SERVER_STATUS).asBoolean())

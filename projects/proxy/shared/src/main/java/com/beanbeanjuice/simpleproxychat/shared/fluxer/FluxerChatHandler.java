@@ -21,7 +21,7 @@ public class FluxerChatHandler extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent event) {
         if (!event.getChannel().getId().equalsIgnoreCase(config.get(ConfigKey.CHANNEL_ID).asString())) return;
         if (event.getAuthor().isBot()) return;
-        if (!config.get(ConfigKey.DISCORD_CHAT_ENABLED).asBoolean()) return;
+        if (!config.get(ConfigKey.FLUXER_CHAT_ENABLED).asBoolean()) return;
 
         sendFromFluxer.accept(event);
     }

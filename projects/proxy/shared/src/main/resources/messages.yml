@@ -28,7 +28,7 @@ minecraft:
     send: "&8[&dyou&8] &f⇒ &8[&d%receiver%&8] &9» &e%message%"
     receive: "&8[&d%sender%&8] &f⇒ &8[&dyou&8] &9» &e%message%"
     error: "&c/spc-whisper (user) (message)"
-  discord:
+  fluxer:
     enabled: true
     message: "**%server%** %player% » %message%"
     embed:
@@ -59,8 +59,8 @@ minecraft:
       usage: "%plugin-prefix% &c/spc-broadcast (message)"
       message: "%plugin-prefix% &8[&a&lBROADCAST&r&8] &6%message%"
 
-# Discord Stuff
-discord:
+# Fluxer Stuff
+fluxer:
   join:
     enabled: true
     message: "%player% has joined the network. (%server%)"
@@ -81,7 +81,7 @@ discord:
     use-embed: true
   chat:
     enabled: true
-    minecraft-message: "&8[&bDiscord&8] %role% &f%user% &9» &7%message%"
+    minecraft-message: "&8[&bFluxer&8] %role% &f%user% &9» &7%message%"
   topic:
     online: "There are %online% players online."
     offline: "The proxy is offline."
@@ -102,7 +102,7 @@ console:
   join: true
   leave: true
   switch: true
-  discord-chat: true
+  fluxer-chat: true
   server-status: true
 
 # The message for any updates that are sent.
