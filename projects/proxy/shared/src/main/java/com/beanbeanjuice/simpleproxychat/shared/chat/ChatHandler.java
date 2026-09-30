@@ -222,6 +222,9 @@ public class ChatHandler {
             if (config.get(ConfigKey.FLUXER_JOIN_USE_TIMESTAMP).asBoolean()) embedBuilder.setTimestamp(EpochHelper.getEpochInstant());
             discordBot.sendMessageEmbed(embedBuilder.build());
         }
+        if (config.get(ConfigKey.FLUXER_JOIN_PING).asBoolean() && config.get(ConfigKey.FLUXER_JOIN_ROLE_ID).asString() != null && !config.get(ConfigKey.FLUXER_JOIN_ROLE_ID).asString().trim().isEmpty()) {
+            discordBot.sendMessage("<@&" + config.get(ConfigKey.FLUXER_JOIN_ROLE_ID).asString() + ">");
+        }
 
         // Log to Minecraft
         if (config.get(ConfigKey.MINECRAFT_JOIN_ENABLED).asBoolean())

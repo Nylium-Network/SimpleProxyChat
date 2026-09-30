@@ -85,6 +85,8 @@ public enum ConfigKey {
     FLUXER_JOIN_MESSAGE(ConfigFileType.MESSAGES, "fluxer.join.message", String.class),
     FLUXER_JOIN_USE_TIMESTAMP(ConfigFileType.MESSAGES, "fluxer.join.use-timestamp", Boolean.class),
     FLUXER_JOIN_USE_EMBED(ConfigFileType.MESSAGES, "fluxer.join.use-embed", Boolean.class),
+    FLUXER_JOIN_PING(ConfigFileType.MESSAGES, "fluxer.join.ping", Boolean.class),
+    FLUXER_JOIN_ROLE_ID(ConfigFileType.MESSAGES, "fluxer.join.role-id", String.class),
     FLUXER_LEAVE_ENABLED(ConfigFileType.MESSAGES, "fluxer.leave.enabled", Boolean.class),
     FLUXER_LEAVE_MESSAGE(ConfigFileType.MESSAGES, "fluxer.leave.message", String.class),
     FLUXER_LEAVE_USE_TIMESTAMP(ConfigFileType.MESSAGES, "fluxer.leave.use-timestamp", Boolean.class),

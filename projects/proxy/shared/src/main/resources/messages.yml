@@ -67,6 +67,9 @@ fluxer:
     use-timestamp: true
     # Incompatible with use-timestamp.
     use-embed: true
+    ping: false
+    # ID of the role to ping if above is true.
+    role-id: '00000000000000000000'
   leave:
     enabled: true
     message: "%player% has left the network. (%server%)"
@@ -110,4 +113,4 @@ console:
 update-message: "&7There is an update! You are on &c%old%. New version is &a%new%&7: &6%link%"
 
 # DO NOT TOUCH THIS
-file-version: 10
+file-version: 11

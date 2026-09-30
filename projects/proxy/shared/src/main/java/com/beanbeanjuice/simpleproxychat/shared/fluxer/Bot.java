@@ -76,7 +76,7 @@ public class Bot {
 
                     mainTextChannel.sendMessage(message).queue();
                 },
-                () -> errorLogger.accept("There was an error sending a message to Discord. Does the channel exist? Does the bot have access to the channel?")
+                () -> errorLogger.accept("There was an error sending a message to Fluxer. Does the channel exist? Does the bot have access to the channel?")
         );
 
 
@@ -91,7 +91,7 @@ public class Bot {
 
         this.getBotTextChannel().ifPresentOrElse(
                 (channel) -> channel.sendMessageEmbeds(sanitizeEmbed(embed)).queue(),
-                () -> errorLogger.accept("There was an error sending a message to Discord. Does the channel exist? Does the bot have access to the channel?")
+                () -> errorLogger.accept("There was an error sending a message to Fluxer. Does the channel exist? Does the bot have access to the channel?")
         );
     }
 
@@ -149,7 +149,7 @@ public class Bot {
                             channelTopicErrorSent = true;
                             errorLogger.accept("""
                                     No permission to edit channel topic. If you don't want the channel topics to be updated, \
-                                    simply ignore this message. Otherwise, please give the Discord bot the MANAGE_CHANNELS \
+                                    simply ignore this message. Otherwise, please give the Fluxer bot the MANAGE_CHANNELS \
                                     permission. This message will only be sent once per server restart. \
                                     """);
                         }
